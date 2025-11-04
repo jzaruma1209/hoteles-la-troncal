@@ -1,0 +1,324 @@
+/* ====================================
+   STAR RATING - Componente de Estrellas 
+   (Extraído del diseño de FormReviews)
+   ==================================== */
+
+/* STAR RATING CONTAINER - Contenedor principal */
+.star-rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 2px solid rgba(24, 119, 242, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.star-rating-container:hover {
+  border-color: rgba(24, 119, 242, 0.2);
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* STARS WRAPPER - Contenedor de las estrellas */
+.stars-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* STAR ICON - Estrellas individuales */
+.star-icon {
+  font-size: 2rem !important;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  position: relative;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.star-icon:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 2px 8px rgba(255, 193, 7, 0.3));
+  color: #ffc107;
+}
+
+.star-icon.filled {
+  color: #ffc107;
+  text-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+  animation: starFill 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover específico para estrellas pintadas - forzar con máxima especificidad */
+.star-rating-container .stars-wrapper .star-icon.filled:hover {
+  transform: scale(1.15) !important;
+  filter: drop-shadow(0 2px 8px rgba(255, 193, 7, 0.5)) !important;
+  color: #ffb300 !important;
+}
+
+.star-icon:active {
+  transform: scale(1.05);
+}
+
+/* RATING DISPLAY - Mostrador del valor y texto */
+.rating-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem; /* Cambiado de 0.3rem a 0.6rem */
+  margin-top: 0.2rem;
+}
+
+.rating-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #10b981;
+  text-shadow: 0 1px 2px rgba(16, 185, 129, 0.2);
+  letter-spacing: 0.5px;
+}
+
+.rating-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* DARK MODE - Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .star-rating-container {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border: 2px solid rgba(100, 116, 139, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .star-rating-container:hover {
+    background: linear-gradient(135deg, #334155 0%, #475569 100%);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 3px 10px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .star-icon {
+    color: #475569;
+  }
+
+  .star-icon:hover {
+    color: #fbbf24;
+    filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.4));
+  }
+
+  .star-icon.filled {
+    color: #fbbf24;
+    text-shadow: 0 2px 4px rgba(251, 191, 36, 0.4);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .star-rating-container .stars-wrapper .star-icon.filled:hover {
+    transform: scale(1.15) !important;
+    filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.6)) !important;
+    color: #f59e0b !important;
+  }
+
+  .rating-value {
+    color: #34d399;
+    text-shadow: 0 1px 2px rgba(52, 211, 153, 0.3);
+  }
+
+  .rating-text {
+    color: #94a3b8;
+  }
+}
+
+/* TAMAÑOS - Diferentes tamaños del componente */
+/* Small Size */
+.star-rating--small .star-icon {
+  font-size: 1.5rem !important;
+}
+
+.star-rating--small .rating-value {
+  font-size: 0.9rem;
+}
+
+.star-rating--small .rating-text {
+  font-size: 0.7rem;
+}
+
+.star-rating--small .star-rating-container {
+  padding: 0.6rem;
+  gap: 0.4rem;
+}
+
+/* Medium Size (Default) */
+.star-rating--medium .star-icon {
+  font-size: 2rem !important;
+}
+
+.star-rating--medium .rating-value {
+  font-size: 1rem;
+}
+
+.star-rating--medium .rating-text {
+  font-size: 0.8rem;
+}
+
+/* Large Size */
+.star-rating--large .star-icon {
+  font-size: 2.5rem !important;
+}
+
+.star-rating--large .rating-value {
+  font-size: 1.2rem;
+}
+
+.star-rating--large .rating-text {
+  font-size: 0.9rem;
+}
+
+.star-rating--large .star-rating-container {
+  padding: 1rem;
+  gap: 0.6rem;
+}
+
+/* READONLY - Modo solo lectura */
+.star-rating--readonly .star-icon {
+  cursor: default;
+}
+
+.star-rating--readonly .star-icon:hover {
+  transform: none;
+  filter: none;
+}
+
+/* Permitir hover en estrellas pintadas incluso en readonly - máxima especificidad */
+.star-rating--readonly .stars-wrapper .star-icon.filled:hover {
+  transform: scale(1.15) !important;
+  filter: drop-shadow(0 2px 8px rgba(255, 193, 7, 0.5)) !important;
+  color: #ffb300 !important;
+}
+
+.star-rating--readonly .star-rating-container:hover {
+  transform: none;
+}
+
+/* HIDDEN ELEMENTS - Elementos ocultos */
+.star-rating--hide-value .rating-value {
+  display: none;
+}
+
+.star-rating--hide-text .rating-text {
+  display: none;
+}
+
+.star-rating--hide-both .rating-display {
+  display: none;
+}
+
+/* ANIMATIONS - Animaciones */
+@keyframes starFill {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* RESPONSIVE - Adaptación a móviles */
+@media (max-width: 480px) {
+  .star-rating-container {
+    padding: 0.6rem;
+    gap: 0.4rem;
+  }
+
+  .stars-wrapper {
+    gap: 0.3rem;
+  }
+
+  .star-icon {
+    font-size: 1.8rem !important;
+  }
+
+  .rating-value {
+    font-size: 0.9rem;
+  }
+
+  .rating-text {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .star-icon {
+    font-size: 1.6rem !important;
+  }
+
+  .stars-wrapper {
+    gap: 0.2rem;
+  }
+}
+
+/* ACCESSIBILITY - Accesibilidad */
+.star-icon:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-icon,
+  .star-rating-container {
+    transition: none;
+  }
+
+  .star-icon.filled {
+    animation: none;
+  }
+}
+
+/* HIGH CONTRAST - Alto contraste */
+@media (prefers-contrast: high) {
+  .star-rating-container {
+    border-width: 3px;
+    border-color: #000000;
+  }
+
+  .star-icon {
+    color: #666666;
+  }
+
+  .star-icon.filled {
+    color: #000000;
+  }
+
+  .rating-value {
+    color: #000000;
+  }
+
+  .rating-text {
+    color: #333333;
+  }
+}

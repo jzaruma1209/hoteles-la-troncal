@@ -1,0 +1,297 @@
+/* ====================================
+   RESERVATIONS PAGE STYLES - ACADEMLO HOTELS
+   =====================================
+   
+   Estilos para la página de reservas, siguiendo el patrón
+   de diseño establecido en la aplicación.
+   
+   ESTRUCTURA:
+   1. Contenedor Principal (.reservations)
+   2. Título de Página (.reservations__title)
+   3. Grid de Cards (.reservations__container)
+   
+   METODOLOGÍA: BEM (Block Element Modifier)
+   ==================================== */
+
+/* ====================================
+   1. CONTENEDOR PRINCIPAL - ESTILO FACEBOOK
+   ==================================== */
+.reservations {
+  /* POSITIONING - Margen superior para evitar overlap con header fijo */
+  padding-top: 80px;
+  /* Espacio para el header fijo */
+  min-height: calc(100vh - 80px);
+  /* Altura mínima de viewport */
+
+  /* LAYOUT - Flexbox para centrar contenido */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  /* Espacio entre elementos */
+
+  /* VISUAL - Fondo estilo Facebook igual al login/register */
+  padding: 20px;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  background: linear-gradient(135deg, #f0f2f5 0%, #e9ecef 100%);
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(24, 119, 242, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(66, 184, 131, 0.05) 0%,
+      transparent 50%
+    );
+}
+
+/* ====================================
+   2. TÍTULO DE PÁGINA - ESTILO FACEBOOK
+   ==================================== */
+.reservations__title {
+  /* TYPOGRAPHY - Estilo Facebook moderno */
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  text-align: center;
+
+  /* VISUAL - Colores estilo Facebook */
+  color: #1c1e21;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+}
+
+/* ====================================
+   3. CONTENEDOR DE RESERVAS - OPTIMIZADO PARA LAYOUT HORIZONTAL
+   ==================================== */
+.reservations__container {
+  /* LAYOUT - Contenedor para cards MUY anchas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  /* Espacio entre cards con animación */
+  width: 100%;
+  max-width: 1200px;
+  /* Ancho mucho mayor para cards súper anchas */
+}
+
+/* ====================================
+   4. MODO OSCURO - ESTILO FACEBOOK
+   ==================================== */
+body.dark-mode .reservations {
+  background: linear-gradient(135deg, #18191a 0%, #1a1b1c 100%);
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(24, 119, 242, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(66, 184, 131, 0.08) 0%,
+      transparent 50%
+    );
+}
+
+body.dark-mode .reservations__title {
+  color: #e4e6ea;
+  /* Color claro para modo oscuro */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ====================================
+   5. RESPONSIVE DESIGN - OPTIMIZADO PARA CARDS HORIZONTALES
+   ==================================== */
+
+/* Mobile */
+@media (max-width: 600px) {
+  .reservations {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 70px;
+  }
+
+  .reservations__title {
+    font-size: 1.8rem;
+  }
+
+  .reservations__container {
+    max-width: 100%;
+    gap: 12px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .reservations {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .reservations__title {
+    font-size: 2.2rem;
+  }
+
+  .reservations__container {
+    max-width: 100%;
+    gap: 15px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .reservations {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .reservations__title {
+    font-size: 2.5rem;
+  }
+
+  .reservations__container {
+    max-width: 900px;
+    gap: 18px;
+  }
+}
+
+/* ====================================
+   EMPTY STATE - NO RESERVATIONS
+   ==================================== */
+.no-reservations {
+  /* LAYOUT - Centrado y espaciado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  margin: 1rem 0;
+
+  /* VISUAL - Card estilo Facebook */
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  width: 100%;
+
+  /* ANIMATION */
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* MODO OSCURO */
+body.dark-mode .no-reservations {
+  background: #2d3748;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.no-reservations__icon {
+  /* ÍCONO GRANDE */
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  filter: grayscale(0.3);
+}
+
+.no-reservations__title {
+  /* TÍTULO PRINCIPAL */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+body.dark-mode .no-reservations__title {
+  color: #ffffff;
+}
+
+.no-reservations__message {
+  /* MENSAJE DESCRIPTIVO */
+  font-size: 1rem;
+  color: #718096;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  max-width: 400px;
+}
+
+body.dark-mode .no-reservations__message {
+  color: #a0aec0;
+}
+
+.no-reservations__btn {
+  /* BOTÓN CTA PRINCIPAL */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+
+  /* VISUAL DESIGN */
+  background: linear-gradient(135deg, #1877f2 0%, #42b883 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+
+  /* TYPOGRAPHY */
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.025em;
+
+  /* SHADOW & EFFECTS */
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* INTERACTIONS */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.no-reservations__btn:hover {
+  background: linear-gradient(135deg, #166fe5 0%, #369870 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(24, 119, 242, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.no-reservations__btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(24, 119, 242, 0.2);
+}
+
+/* ANIMACIÓN DE ENTRADA */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .no-reservations {
+    padding: 3rem 1.5rem;
+    margin: 1rem;
+  }
+
+  .no-reservations__icon {
+    font-size: 3rem;
+  }
+
+  .no-reservations__title {
+    font-size: 1.5rem;
+  }
+
+  .no-reservations__message {
+    font-size: 0.9rem;
+  }
+}

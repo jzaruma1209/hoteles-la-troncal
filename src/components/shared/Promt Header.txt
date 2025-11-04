@@ -1,0 +1,129 @@
+Crea un componente de navegación (navbar) moderno y completamente responsivo para una aplicación de hoteles llamada "Academlo Hotels" con las siguientes especificaciones técnicas exactas:
+
+🏗️ ESTRUCTURA DEL COMPONENTE:
+=============================
+
+1. ARCHIVO JSX (Header.jsx):
+   - Componente funcional de React con useState para manejo del menú mobile
+   - Logo "Academlo Hotels" (donde "Academlo" es azul #1877f2 y "Hotels" es verde #42b883)
+   - Navegación desktop con enlaces: Reservations, Register, Login
+   - Botón hamburguesa para mobile con icono de BoxIcons
+   - Menú mobile desplegable con animaciones
+   - Funciones handleMenu() y closeMenu() para toggle del menú
+   - Import de React, useState, Link de react-router-dom
+
+2. ARCHIVO CSS (Header.css):
+   - Metodología BEM para nomenclatura de clases
+   - Sistema Mobile First con Progressive Enhancement
+   - Header fijo (position: fixed) con altura de 60px
+   - Z-index: header(1000), mobile-menu(999)
+
+🎨 DISEÑO Y COLORES:
+===================
+- Primary Blue: #1877f2 (color Facebook)
+- Accent Green: #42b883 (color Vue.js)
+- Text Dark: #333
+- Background Light: #f0f2f5, #f8f9fa
+- White: #fff
+- Sombra del header: 0 2px 10px rgba(0, 0, 0, 0.1)
+
+📱 BREAKPOINTS RESPONSIVOS:
+==========================
+- Mobile: 0-767px (menú hamburguesa visible, nav desktop oculto)
+- Tablet: 768-1023px (nav desktop visible, hamburguesa oculto)
+- Desktop: 1024-1199px
+- Large Desktop: 1200px+
+- Extra Small: max-width 480px
+
+🔧 ESPECIFICACIONES TÉCNICAS:
+
+LAYOUT PRINCIPAL:
+- Header con display: flex, align-items: center
+- Logo con margin-right: auto (empuja navegación a la derecha)
+- Navegación desktop con gap progresivo: 15px→20px→25px→30px
+- Padding del header progresivo: 20px→30px→40px→50px
+- Box-sizing: border-box, overflow: hidden
+
+LOGO:
+- Font-size progresivo: 1.2rem→1.3rem→1.4rem→1.5rem→1.6rem→1.7rem
+- Font-weight: bold
+- Enlace con display: flex, align-items: center, gap: 4px
+- White-space: nowrap, flex-shrink: 0
+
+NAVEGACIÓN DESKTOP:
+- Lista con display: flex, list-style: none
+- Enlaces con padding progresivo: 6px 12px→10px 18px
+- Border-radius: 6px, transition: all 0.3s ease
+- Hover effects: background #f0f2f5, color #1877f2
+- White-space: nowrap, flex-shrink: 0
+
+BOTÓN MOBILE:
+- Circular: width/height 40px→36px en extra small
+- Background: #f0f2f5, border-radius: 50%
+- Margin-left: auto, cursor: pointer
+- Hover: background #e4e6ea, transform: scale(1.05)
+- Icono: font-size 1.5rem→1.3rem en extra small
+
+MENÚ MOBILE:
+- Position: fixed, top: 60px, left: 0, width: 100%
+- Animación: transform translateY(-100%) → translateY(0)
+- Opacity: 0 → 1, visibility: hidden → visible
+- Transition: cubic-bezier(0.4, 0, 0.2, 1)
+- Enlaces con padding: 15px 30px
+- Pseudo-elemento ::before con gradiente lateral en hover
+- Hover: padding-left: 35px, barra lateral 4px
+
+⚡ OPTIMIZACIONES REQUERIDAS:
+============================
+- Hardware acceleration con CSS transforms
+- Transitions suaves (0.3s ease)
+- Flex-shrink: 0 en elementos críticos
+- Box-sizing: border-box global
+- Overflow: hidden para prevenir scroll horizontal
+- White-space: nowrap para evitar text wrapping
+
+🎯 FUNCIONALIDAD ESPECÍFICA:
+===========================
+- Estado isOpenMenu con useState(false)
+- Toggle del menú con handleMenu()
+- Cierre del menú con closeMenu()
+- Clase condicional 'active' en menú mobile
+- Navegación desktop oculta en mobile (!important)
+- Navegación mobile oculta en desktop (!important)
+
+📋 ELEMENTOS REQUERIDOS:
+=======================
+1. Header container con clase .header
+2. Logo con enlace y clases .header__logo
+3. Nav desktop con clase .header__nav (display: none en mobile)
+4. Lista .header__list con items .header__item
+5. Botón mobile .header__menu con icono bx-menu
+6. Nav mobile .header__nav-mobile con lista .header__list-mobile
+7. Items mobile .header__item-mobile con efectos hover avanzados
+
+🔄 COMPORTAMIENTO:
+=================
+- Header siempre fijo en top
+- Logo empuja navegación hacia la derecha automáticamente
+- En mobile: solo logo + hamburguesa visible
+- Click hamburguesa: menú slide down desde arriba
+- En tablet/desktop: navegación horizontal completa
+- Hover effects en todos los enlaces
+- Responsive automático en todos los breakpoints
+- Z-index layering correcto
+
+📝 COMENTARIOS REQUERIDOS:
+=========================
+- Comentarios detallados explicando cada sección
+- Documentación técnica completa al final del CSS
+- Explicación del flujo de funcionamiento
+- Justificación de decisiones técnicas
+- Guía de modificación para futuros desarrolladores
+
+DEPENDENCIAS:
+- React 18+
+- React Router DOM (Link component)
+- BoxIcons para iconos
+- Estados de React (useState)
+
+Implementa exactamente con estas especificaciones, sin omitir ningún detalle técnico, manteniendo la calidad profesional y la documentación completa.

@@ -1,0 +1,866 @@
+/* ====================================
+   FORM REVIEWS - Formulario de Reseñas
+   ==================================== */
+
+/* POPUP CONTAINER - Contenedor del popup */
+.form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+/* POPUP CONTENT - Contenido principal del popup */
+.form-popup__content {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px !important;
+  box-shadow: 0 17px 51px rgba(0, 0, 0, 0.12),
+    0 6.8px 21.25px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: 1.5rem !important;
+  width: min(90vw, 420px) !important;
+  height: fit-content;
+  max-height: min(100vh, 900px) !important;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(248, 249, 250, 0.95) 100%
+  );
+  backdrop-filter: blur(10px);
+}
+
+/* CLOSE BUTTON - Botón de cerrar */
+.form-popup__content .bx-x {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 1001;
+}
+
+.form-popup__content .bx-x:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+}
+
+/* HEADER TITLE - Título del formulario */
+.form-popup__content h2 {
+  background: linear-gradient(135deg, #1877f2 0%, #42b883 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.4rem !important;
+  font-weight: 700;
+  margin: 0 0 1.2rem 0 !important;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.3px;
+}
+
+/* HOTEL CARD - Tarjeta de información del hotel */
+.hotel-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f4 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10.2px;
+  padding: 0.68rem;
+  margin-bottom: 0.68rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hotel-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.7px;
+  background: linear-gradient(90deg, #1877f2 0%, #42b883 100%);
+}
+
+/* HOTEL HEADER - Header de la tarjeta del hotel */
+.hotel-header {
+  margin-bottom: 0.6375rem;
+}
+
+.hotel-image {
+  width: 100%;
+  height: 110px !important;
+  object-fit: cover;
+  border-radius: 6.8px !important;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-image:hover {
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* HOTEL INFO - Información del hotel */
+.hotel-info {
+  margin-top: 0.425rem;
+}
+
+.hotel-name {
+  color: #2c3e50;
+  font-size: 0.7225rem !important;
+  font-weight: 600;
+  margin: 0 0 0.34rem 0 !important;
+  text-align: center;
+  line-height: 1.1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* HOTEL DETAILS - Detalles del hotel */
+.hotel-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.17rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.255rem 0.425rem;
+  border-radius: 5.1px;
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+  border: 1px solid rgba(24, 119, 242, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.detail-item:hover {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-color: rgba(24, 119, 242, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.1);
+}
+
+.detail-item span:first-child {
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 0.595rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.255px;
+}
+
+.detail-item span:last-child {
+  color: #1877f2;
+  font-weight: 700;
+  font-size: 0.6375rem !important;
+}
+
+/* REVIEW FORM - Formulario de reseñas */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.595rem;
+}
+
+/* FORM GROUP - Grupo de elementos del formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* LABEL TEXT - Texto de las etiquetas */
+.label-text {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* STAR RATING CONTAINER - Contenedor del sistema de estrellas */
+.star-rating-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 2px solid rgba(24, 119, 242, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.star-rating-container:hover {
+  border-color: rgba(24, 119, 242, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.1);
+}
+
+/* STARS WRAPPER - Contenedor de estrellas */
+.stars-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* STAR ICON - Estilos individuales de estrellas */
+.star-icon {
+  font-size: 2rem !important;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.star-icon:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 2px 8px rgba(255, 193, 7, 0.3));
+}
+
+.star-icon.filled {
+  color: #ffc107;
+  text-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+}
+
+.star-icon:active {
+  transform: scale(1.05);
+}
+
+/* RATING CONTAINER - Contenedor del rating moderno (legacy - mantenido por compatibilidad) */
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.51rem;
+  padding: 0.68rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 2px solid rgba(24, 119, 242, 0.1);
+  border-radius: 10.2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rating-container:hover {
+  border-color: rgba(24, 119, 242, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.1);
+}
+
+/* RATING SLIDER - Slider personalizado */
+.rating-slider {
+  appearance: none;
+  width: 100%;
+  height: 5.1px;
+  background: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 3px;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.rating-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  background: linear-gradient(135deg, #1877f2 0%, #42b883 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(24, 119, 242, 0.3);
+}
+
+.rating-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.5);
+}
+
+.rating-slider::-moz-range-thumb {
+  width: 17px;
+  height: 17px;
+  background: linear-gradient(135deg, #1877f2 0%, #42b883 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(24, 119, 242, 0.3);
+}
+
+/* RATING DISPLAY - Mostrador del valor */
+.rating-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  margin-top: 0.2rem;
+}
+
+.rating-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1877f2;
+  background: linear-gradient(135deg, #1877f2 0%, #42b883 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rating-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* COMMENT TEXTAREA - Área de texto para comentarios */
+.comment-textarea {
+  padding: 1rem !important;
+  border: 2px solid rgba(24, 119, 242, 0.1);
+  border-radius: 12px !important;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem !important;
+  resize: none;
+  min-height: 100px !important;
+  max-height: 150px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  line-height: 1.5;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.comment-textarea:focus {
+  border-color: #1877f2;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(24, 119, 242, 0.15),
+    inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+}
+
+.comment-textarea:hover {
+  border-color: rgba(24, 119, 242, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.1);
+}
+
+.comment-textarea::placeholder {
+  color: #64748b;
+  font-style: italic;
+  font-size: 0.6375rem;
+  font-weight: 400;
+}
+
+/* SUBMIT BUTTON - Botón de envío */
+.submit-btn {
+  background: linear-gradient(135deg, #1877f2 0%, #42b883 100%);
+  color: white;
+  padding: 1rem 2rem !important;
+  border: none;
+  border-radius: 12px !important;
+  font-size: 1rem !important;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  align-self: stretch;
+  min-width: 150px;
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #166fe5 0%, #369870 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ERROR MESSAGES - Mensajes de error */
+.error-message {
+  display: block;
+  color: #ef4444;
+  font-size: 0.6375rem;
+  font-weight: 500;
+  margin-top: 0.255rem;
+  margin-left: 0.17rem;
+  animation: slideInError 0.3s ease-out;
+}
+
+@keyframes slideInError {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ANIMATIONS - Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* RESPONSIVE - Diseño perfectamente adaptado */
+
+/* Pantallas muy pequeñas (iPhone SE, etc.) */
+@media (max-width: 375px) and (max-height: 667px) {
+  .form-popup__content {
+    width: calc(100vw - 1.7rem);
+    max-width: none;
+    max-height: calc(100vh - 5.1rem);
+    padding: 0.595rem;
+    margin: 0.85rem;
+  }
+
+  .hotel-image {
+    height: 50px !important;
+  }
+
+  .form-popup__content h2 {
+    font-size: 0.85rem;
+    margin-bottom: 0.68rem;
+  }
+
+  .hotel-card {
+    padding: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .comment-textarea {
+    min-height: 42.5px;
+    max-height: 68px;
+  }
+
+  .review-form {
+    gap: 0.595rem;
+  }
+}
+
+/* Móviles estándar */
+@media (min-width: 376px) and (max-width: 480px) {
+  .form-popup__content {
+    width: calc(100vw - 2.55rem);
+    max-width: 272px;
+    max-height: calc(100vh - 4.25rem);
+    padding: 0.765rem;
+    margin: 1.275rem;
+  }
+
+  .hotel-image {
+    height: 60px !important;
+  }
+
+  .hotel-card {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .comment-textarea {
+    min-height: 51px;
+    max-height: 76.5px;
+  }
+}
+
+/* Tablets pequeñas */
+@media (min-width: 481px) and (max-width: 768px) {
+  .form-popup__content {
+    width: min(51vw, 289px);
+    max-height: calc(100vh - 5.1rem);
+    padding: 0.85rem;
+  }
+
+  .hotel-image {
+    height: 76.5px;
+  }
+
+  .form-popup__content h2 {
+    font-size: 0.935rem;
+  }
+}
+
+/* Tablets grandes y desktop pequeño */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .form-popup__content {
+    width: min(34vw, 297.5px);
+    max-height: calc(100vh - 6.8rem);
+    padding: 0.935rem;
+  }
+}
+
+/* Desktop y pantallas grandes */
+@media (min-width: 1025px) {
+  .form-popup__content {
+    width: min(21.25vw, 272px);
+    max-height: calc(100vh - 6.8rem);
+    padding: 0.85rem;
+  }
+}
+
+/* Pantallas muy altas (para evitar que se vea muy pequeño) */
+@media (min-height: 800px) {
+  .form-popup__content {
+    max-height: calc(100vh - 11.9rem);
+  }
+}
+
+/* Pantallas muy anchas */
+@media (min-width: 1400px) {
+  .form-popup__content {
+    max-width: 340px;
+    padding: 1.275rem;
+  }
+}
+
+/* DARK MODE - Modo oscuro */
+body.dark-mode .form-popup {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .form-popup__content {
+  background: linear-gradient(135deg, #242526 0%, #2d2e30 100%);
+  border-color: #4e4f50;
+  color: #e4e6ea;
+}
+
+body.dark-mode .form-popup__content h2 {
+  color: #42b883;
+}
+
+body.dark-mode .form-popup__content .bx-x {
+  color: #b0b3b8;
+}
+
+body.dark-mode .form-popup__content .bx-x:hover {
+  color: #42b883;
+  background: rgba(66, 184, 131, 0.15);
+}
+
+body.dark-mode .hotel-card {
+  background: linear-gradient(135deg, #3a3b3c 0%, #4e4f50 100%);
+  border-color: #4e4f50;
+}
+
+body.dark-mode .hotel-name {
+  color: #e4e6ea;
+}
+
+body.dark-mode .detail-item {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .detail-item {
+  background: linear-gradient(135deg, #3a3b3c 0%, #2d2e30 100%);
+  border-color: rgba(66, 184, 131, 0.3);
+}
+
+body.dark-mode .detail-item:hover {
+  background: linear-gradient(135deg, #404142 0%, #35363a 100%);
+  border-color: rgba(66, 184, 131, 0.5);
+}
+
+body.dark-mode .detail-item span:first-child {
+  color: #b0b3b8;
+}
+
+body.dark-mode .detail-item span:last-child {
+  color: #42b883;
+}
+
+body.dark-mode .label-text {
+  color: #e4e6ea;
+}
+
+body.dark-mode .rating-select,
+body.dark-mode .comment-textarea {
+  background: #3a3b3c;
+  border-color: #4e4f50;
+  color: #e4e6ea;
+}
+
+body.dark-mode .rating-select:focus,
+body.dark-mode .comment-textarea:focus {
+  border-color: #42b883;
+  box-shadow: 0 0 0 3px rgba(66, 184, 131, 0.2);
+}
+
+body.dark-mode .rating-select:hover,
+body.dark-mode .comment-textarea:hover {
+  border-color: #42b883;
+}
+
+body.dark-mode .comment-textarea::placeholder {
+  color: #65676b;
+}
+
+body.dark-mode .submit-btn {
+  background: linear-gradient(135deg, #42b883 0%, #369870 100%);
+  box-shadow: 0 2px 8px rgba(66, 184, 131, 0.3);
+}
+
+body.dark-mode .submit-btn:hover {
+  background: linear-gradient(135deg, #369870 0%, #2d7a5d 100%);
+  box-shadow: 0 4px 12px rgba(66, 184, 131, 0.4);
+}
+
+/* DARK MODE - Star Rating Container */
+body.dark-mode .star-rating-container {
+  background: linear-gradient(135deg, #3a3b3c 0%, #2d2e30 100%);
+  border-color: rgba(66, 184, 131, 0.3);
+}
+
+body.dark-mode .star-rating-container:hover {
+  border-color: rgba(66, 184, 131, 0.5);
+  box-shadow: 0 4px 15px rgba(66, 184, 131, 0.2);
+}
+
+body.dark-mode .star-icon {
+  color: #4e4f50;
+}
+
+body.dark-mode .star-icon.filled {
+  color: #ffc107;
+  text-shadow: 0 2px 4px rgba(255, 193, 7, 0.4);
+}
+
+body.dark-mode .star-icon:hover {
+  filter: drop-shadow(0 2px 8px rgba(255, 193, 7, 0.4));
+}
+
+body.dark-mode .error-message {
+  color: #ff6b6b;
+}
+
+/* DARK MODE - Rating Container (legacy) */
+body.dark-mode .rating-container {
+  background: linear-gradient(135deg, #3a3b3c 0%, #2d2e30 100%);
+  border-color: rgba(66, 184, 131, 0.3);
+}
+
+body.dark-mode .rating-container:hover {
+  border-color: rgba(66, 184, 131, 0.5);
+}
+
+body.dark-mode .rating-slider {
+  background: linear-gradient(90deg, #4e4f50 0%, #3a3b3c 100%);
+}
+
+body.dark-mode .rating-slider::-webkit-slider-thumb {
+  background: linear-gradient(135deg, #42b883 0%, #369870 100%);
+}
+
+body.dark-mode .rating-value {
+  background: linear-gradient(135deg, #42b883 0%, #369870 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .rating-text {
+  color: #b0b3b8;
+}
+
+/* ====================================
+   PANTALLAS BAJAS - Optimización para altura limitada
+   ==================================== */
+@media (max-height: 700px) {
+  .form-popup__content {
+    max-height: calc(100vh - 1rem) !important;
+    padding: 0.3rem !important;
+    transform: scale(0.85) !important;
+    transform-origin: top center !important;
+  }
+
+  .hotel-card {
+    padding: 0.5rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .hotel-image {
+    height: 44px !important;
+    min-height: 44px !important;
+    margin-bottom: 0.33rem !important;
+  }
+
+  .hotel-details h3 {
+    font-size: 0.82rem !important;
+    margin-bottom: 0.22rem !important;
+  }
+
+  .hotel-details p {
+    font-size: 0.66rem !important;
+    margin-bottom: 0.17rem !important;
+  }
+
+  .rating-section {
+    margin: 0.33rem 0 !important;
+  }
+
+  .comment-textarea {
+    min-height: 44px !important;
+    max-height: 66px !important;
+    padding: 0.55rem !important;
+    font-size: 0.82rem !important;
+    margin-bottom: 0.33rem !important;
+  }
+
+  /* Title más pequeño y menos margen */
+  .form-popup__content h2 {
+    font-size: 0.99rem !important;
+    margin: 0 0 0.66rem 0 !important;
+  }
+
+  /* Detalles del hotel más pequeños */
+  .hotel-name {
+    font-size: 0.66rem !important;
+    margin-bottom: 0.22rem !important;
+  }
+
+  .detail-item {
+    padding: 0.17rem 0.33rem !important;
+  }
+
+  .detail-item span:first-child {
+    font-size: 0.55rem !important;
+  }
+
+  .detail-item span:last-child {
+    font-size: 0.6rem !important;
+  }
+
+  /* SECCIÓN DE RATING - Acercamiento */
+  .label-text {
+    font-size: 0.82rem !important;
+    margin-bottom: 0.22rem !important;
+  }
+
+  /* Acortar gaps */
+  .form-group {
+    gap: 0.33rem !important;
+    margin-bottom: 0.55rem !important;
+  }
+
+  .review-form {
+    gap: 0.33rem !important;
+  }
+
+  /* Estrellas más pequeñas */
+  .star-icon {
+    font-size: 1.65rem !important;
+  }
+
+  .stars-wrapper {
+    gap: 0.22rem !important;
+  }
+
+  .star-rating-container {
+    padding: 0.44rem !important;
+    gap: 0.33rem !important;
+  }
+
+  .submit-btn {
+    padding: 0.55rem 1.1rem !important;
+    font-size: 0.77rem !important;
+    margin-top: 0.44rem !important;
+    border-radius: 8.8px !important;
+  }
+
+  /* BOTÓN DE CERRAR MÁS PEQUEÑO EN PANTALLAS BAJAS */
+  .form-popup__content .bx-x {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    font-size: 1rem !important;
+    top: 0.7rem !important;
+    right: 0.7rem !important;
+    padding: 0.3rem !important;
+  }
+}
+
+/* ====================================
+   REDUCCIÓN DE TAMAÑO FORZADA - 15%
+   ==================================== */
+.form-popup__content {
+  transform: scale(0.85) !important;
+  transform-origin: center center !important;
+}

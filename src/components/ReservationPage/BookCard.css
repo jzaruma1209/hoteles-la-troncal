@@ -1,0 +1,683 @@
+/* Animación de rotación para la estrella FontAwesome */
+.review-star {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.review-star svg {
+  transition: transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.book-card__review-btn:hover .review-star svg {
+  transform: rotate(360deg);
+}
+/* ====================================
+   BOOK CARD COMPONENT STYLES
+   ====================================
+   Diseño original limpio para las tarjetas de reserva
+   ==================================== */
+
+.book-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 900px;
+  color: #000000;
+}
+
+/* MODO OSCURO */
+body.dark-mode .book-card {
+  background: #2d3748;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: #007bff;
+}
+
+.book-card__header {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.book-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+/* ====================================
+   3. BODY CON INFORMACIÓN - ESTILO FACEBOOK
+   ==================================== */
+.book-card__body {
+  /* LAYOUT - Contenido para card más delgada */
+  padding: 8px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  min-height: 80px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 250, 252, 0.95) 100%
+  );
+}
+
+/* ====================================
+   4. INFORMACIÓN SUPERIOR
+   ==================================== */
+.book-card__header-info {
+  /* LAYOUT - Información superior de la card */
+  margin-bottom: 0.3rem;
+}
+
+.book-card__title {
+  /* TYPOGRAPHY - Título estilo Facebook */
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: #1a202c;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+body.dark-mode .book-card__title {
+  color: #ffffff;
+}
+
+.book-card__location {
+  /* TYPOGRAPHY - Ubicación estilo Facebook */
+  font-size: 0.8rem;
+  color: #718096;
+  margin-bottom: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+body.dark-mode .book-card__location {
+  color: #a0aec0;
+}
+
+/* .book-card__location::before {
+  content: "📍";
+  font-size: 14px;
+  filter: brightness(0.8);
+} */
+
+.book-card__review-btn {
+  /* DISEÑO COMO BOTÓN MODERNO */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  /* SIZING */
+  padding: 0.5rem 1.5rem;
+  margin: 0.3rem 0;
+  width: 100%;
+  max-width: 200px;
+
+  /* VISUAL DESIGN - Botón llamativo y moderno */
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+
+  /* TYPOGRAPHY */
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  /* SHADOW & EFFECTS */
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* INTERACTIONS */
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  /* ACCESSIBILITY */
+  user-select: none;
+  outline: none;
+}
+
+/* EFECTO SHINE ANIMADO PARA REVIEW BTN */
+.book-card__review-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.book-card__review-btn:hover::before {
+  left: 100%;
+}
+
+/* ESTADO HOVER PARA REVIEW BTN */
+.book-card__review-btn:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4), 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.book-card__review-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ESTRELLA ANIMADA */
+.star-icon {
+  display: inline-block;
+  animation: sparkle 2s ease-in-out infinite;
+  margin-right: 0.5rem;
+  filter: none;
+  text-shadow: none;
+  border: none !important;
+}
+
+.book-card__review-btn:hover .star-icon {
+  animation: spin 0.6s ease-in-out;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+/* EFECTO SHINE ANIMADO */
+.book-card__review-prompt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.book-card__review-prompt:hover::before {
+  left: 100%;
+}
+
+/* ESTADO HOVER */
+.book-card__review-prompt:hover {
+  background: linear-gradient(135deg, #166fe5 0%, #369870 100%);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4), 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ESTADO ACTIVE */
+.book-card__review-prompt:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+}
+
+/* ESTRELLA CSS PERSONALIZADA MODERNA */
+.book-card__review-prompt::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin-left: 0.6rem;
+  position: relative;
+  display: inline-block;
+
+  /* Crear estrella perfecta con clip-path */
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  background: rgba(255, 255, 255, 0.95);
+  animation: starGlow 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+  transition: all 0.3s ease;
+}
+
+/* ANIMACIÓN ESTRELLA DORADA BRILLANTE */
+@keyframes starGlow {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    background: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+  }
+  25% {
+    transform: scale(1.15) rotate(8deg);
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+    background: linear-gradient(45deg, #ffed4e, #ffd700);
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.9));
+  }
+  75% {
+    transform: scale(1.15) rotate(-8deg);
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+  }
+}
+
+/* EFECTO HOVER INTENSO EN LA ESTRELLA */
+.book-card__review-prompt:hover::after {
+  animation-duration: 1.5s;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1))
+    drop-shadow(0 0 25px rgba(255, 215, 0, 0.6));
+  transform: scale(1.3) rotate(360deg);
+}
+
+/* ====================================
+   5. PRICING SECTION - UX/UI OPTIMIZADO
+   ==================================== */
+.book-card__pricing {
+  /* LAYOUT - Sección de precios clara y organizada */
+  margin: 20px 0 0 0;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  color: white;
+}
+
+.book-card__calculation {
+  /* CALCULATION - Muestra el cálculo de manera clara */
+  margin-bottom: 12px;
+}
+
+.book-card__calculation-text {
+  /* TYPOGRAPHY - Texto del cálculo más visible */
+  font-size: 0.95rem;
+  color: #1a202c;
+  font-weight: 600;
+  line-height: 1.4;
+  text-shadow: none;
+}
+
+body.dark-mode .book-card__calculation-text {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.book-card__divider {
+  /* VISUAL SEPARATOR - Línea divisoria elegante */
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 1) 80%,
+    transparent 100%
+  );
+  margin: 12px 0;
+  position: relative;
+}
+
+.book-card__divider::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+.book-card__total {
+  /* TOTAL SECTION - Precio total destacado */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.book-card__total-label {
+  /* TYPOGRAPHY - Label del total */
+  font-weight: 600;
+  color: rgba(26, 32, 44, 0.8);
+  font-size: 0.95rem;
+}
+
+.book-card__total-value {
+  /* TYPOGRAPHY - Valor total destacado */
+  font-weight: 700;
+  color: #1a202c;
+  font-size: 1.1rem;
+  text-shadow: none;
+}
+
+body.dark-mode .book-card__total-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode .book-card__total-value {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ====================================
+   6. BOTÓN DE ELIMINAR - ESTILO FACEBOOK
+   ==================================== */
+.book-card__delete-btn {
+  /* POSITIONING - Posición dentro del body para evitar sobreposición */
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+
+  /* SIZING - Botón circular mantiene tamaño original */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  /* VISUAL - Estilo Facebook rojo */
+  background: #e41e3f;
+  /* Rojo Facebook */
+  color: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(228, 30, 63, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  /* LAYOUT - Centrar ícono estilo Facebook */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* INTERACTION - Transiciones Facebook */
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.book-card__delete-btn:hover {
+  background: #d91e40;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(228, 30, 63, 0.4), 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.book-card__delete-btn:active {
+  transform: scale(0.98);
+}
+
+/* ====================================
+   DETALLES DE LA RESERVA
+   ==================================== */
+.book-card__details {
+  margin: 1rem 0;
+}
+
+.book-card__detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.book-card__detail-item:last-child {
+  border-bottom: none;
+}
+
+.book-card__detail-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.book-card__detail-value {
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.book-card__price-highlight {
+  color: #10b981 !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+/* ====================================
+   7. MODO OSCURO - ESTILO FACEBOOK
+   ==================================== */
+body.dark-mode .book-card {
+  background: #242526;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+  background-image: radial-gradient(
+      circle at 20% 20%,
+      rgba(24, 119, 242, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 50%
+    );
+}
+
+body.dark-mode .book-card__body {
+  background: linear-gradient(
+    135deg,
+    rgba(36, 37, 38, 0.9) 0%,
+    rgba(42, 43, 44, 0.95) 100%
+  );
+}
+
+body.dark-mode .book-card__title {
+  color: #e4e6ea;
+}
+
+body.dark-mode .book-card__location {
+  color: #b0b3b8;
+}
+
+body.dark-mode .book-card__review-prompt {
+  background: linear-gradient(135deg, #42b883 0%, #369870 100%);
+  box-shadow: 0 4px 15px rgba(66, 184, 131, 0.25), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .book-card__review-prompt:hover {
+  background: linear-gradient(135deg, #369870 0%, #2d7a5d 100%);
+  box-shadow: 0 8px 25px rgba(66, 184, 131, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* DARK MODE - Nueva sección de pricing */
+body.dark-mode .book-card__pricing {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: rgba(102, 126, 234, 0.2);
+  color: white;
+}
+
+body.dark-mode .book-card__calculation-text {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .book-card__divider {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #4a5568 20%,
+    #4a5568 80%,
+    transparent 100%
+  );
+}
+
+body.dark-mode .book-card__divider::after {
+  background: #4a5568;
+}
+
+body.dark-mode .book-card__total-label {
+  color: #ffffff;
+}
+
+body.dark-mode .book-card__total-value {
+  color: #ffffff;
+}
+
+/* ====================================
+   7. RESPONSIVE DESIGN - LAYOUT HORIZONTAL
+   ==================================== */
+
+/* Mobile pequeño - Layout vertical en pantallas muy pequeñas */
+@media (max-width: 600px) {
+  .book-card {
+    flex-direction: column;
+    /* Cambiar a vertical en móvil */
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .book-card__header {
+    width: 100%;
+    /* Imagen ocupa todo el ancho */
+  }
+
+  .book-card__image {
+    height: 200px;
+    min-height: 200px;
+  }
+
+  .book-card__body {
+    padding: 1.2em 1em 1.5em;
+    min-height: auto;
+  }
+
+  .book-card__details {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+
+  .book-card__detail-item {
+    min-width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .book-card__delete-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Tablet - Layout horizontal optimizado para cards más anchas */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .book-card {
+    max-width: 100%;
+    min-height: 140px;
+  }
+
+  .book-card__header {
+    width: 220px;
+  }
+
+  .book-card__image {
+    min-height: 140px;
+  }
+
+  .book-card__body {
+    padding: 1em 1.5em;
+    min-height: 140px;
+  }
+
+  .book-card__details {
+    gap: 1.2em;
+  }
+}
+
+/* Desktop - Layout horizontal SÚPER ANCHO */
+@media (min-width: 1024px) {
+  .book-card {
+    max-width: 1100px;
+    min-height: 140px;
+  }
+
+  .book-card__header {
+    width: 300px;
+  }
+
+  .book-card__image {
+    min-height: 140px;
+  }
+
+  .book-card__body {
+    padding: 14px 28px;
+    min-height: 140px;
+  }
+
+  .book-card__details {
+    gap: 2em;
+  }
+
+  .book-card__delete-btn {
+    width: 44px;
+    height: 44px;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}

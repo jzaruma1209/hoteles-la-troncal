@@ -1,0 +1,46 @@
+.other-hotels-container {
+  margin: 2rem 0;
+}
+
+.other-hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.other-hotels-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.other-hotels-container h3 span {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.other-hotels-container p {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin: 2rem 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .other-hotels-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .other-hotels-container {
+    margin: 1rem 0;
+  }
+
+  .other-hotels-container h3 {
+    font-size: 1.25rem;
+  }
+}

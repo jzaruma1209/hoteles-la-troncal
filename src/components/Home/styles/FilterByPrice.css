@@ -1,0 +1,205 @@
+/* Estilos para FilterByPrice - Concordancia con FilterByCity */
+.filterprice.grid-container {
+  background: #ffffff;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  padding: 24px;
+  width: 280px;
+  max-width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+body.dark-mode .filterprice.grid-container {
+  background: #2d2d30;
+  border: 1px solid #404040;
+  color: #ffffff;
+}
+
+.filterprice__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+body.dark-mode .filterprice__title {
+  color: #ffffff;
+  border-bottom: 1px solid #404040;
+}
+
+.filterprice__form.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.filterprice__form-field.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.filterprice__form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #262626;
+  margin: 0;
+}
+
+body.dark-mode .filterprice__form-label {
+  color: #e4e6ea;
+}
+
+.filterprice__form-input {
+  padding: 12px 16px;
+  border: 1px solid #e7e7e7;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #262626;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.filterprice__form-input:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+body.dark-mode .filterprice__form-input {
+  background: #404040;
+  border: 1px solid #555555;
+  color: #e4e6ea;
+}
+
+body.dark-mode .filterprice__form-input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.filterprice__form-btn {
+  padding: 12px 24px;
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.filterprice__form-btn:hover {
+  background-color: #16a34a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(34, 197, 94, 0.3);
+}
+
+.filterprice__form-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(34, 197, 94, 0.3);
+}
+
+body.dark-mode .filterprice__form-btn {
+  background-color: #22c55e;
+}
+
+body.dark-mode .filterprice__form-btn:hover {
+  background-color: #16a34a;
+}
+
+/* Responsive Design - Concordancia con FilterByCity */
+@media (max-width: 1024px) {
+  .filterprice.grid-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px 0;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  body.dark-mode .filterprice.grid-container {
+    background: #2d2d30;
+  }
+
+  .filterprice__title {
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .filterprice__form.grid-container {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filterprice.grid-container {
+    padding: 12px 16px;
+    margin: 0 0 16px 0;
+  }
+
+  .filterprice__title {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .filterprice__form.grid-container {
+    gap: 10px;
+  }
+
+  .filterprice__form-input {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .filterprice__form-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .filterprice__form-label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filterprice.grid-container {
+    padding: 10px 12px;
+  }
+
+  .filterprice__title {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .filterprice__form.grid-container {
+    gap: 8px;
+  }
+
+  .filterprice__form-input {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .filterprice__form-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .filterprice__form-label {
+    font-size: 12px;
+  }
+}

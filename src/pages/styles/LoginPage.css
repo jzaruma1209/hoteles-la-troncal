@@ -1,0 +1,385 @@
+/* Diseño estilo Facebook para el login */
+.login {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+  margin-top: 60px;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f0f2f5 0%, #e9ecef 100%);
+  background-image: radial-gradient(circle at 25% 25%,
+      rgba(24, 119, 242, 0.05) 0%,
+      transparent 50%),
+    radial-gradient(circle at 75% 75%,
+      rgba(66, 184, 131, 0.05) 0%,
+      transparent 50%);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Modo oscuro */
+body.dark-mode .login {
+  background: linear-gradient(135deg, #18191a 0%, #1a1b1c 100%);
+  background-image: radial-gradient(circle at 25% 25%,
+      rgba(24, 119, 242, 0.08) 0%,
+      transparent 50%),
+    radial-gradient(circle at 75% 75%,
+      rgba(66, 184, 131, 0.08) 0%,
+      transparent 50%);
+}
+
+.login__container {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 12px 24px -6px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: 24px;
+  width: 100%;
+  max-width: 380px;
+  margin: auto;
+  position: relative;
+  backdrop-filter: blur(10px);
+  background-image: radial-gradient(circle at 20% 20%,
+      rgba(120, 119, 198, 0.03) 0%,
+      transparent 50%),
+    radial-gradient(circle at 80% 80%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%),
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%);
+  transition: all 0.3s ease;
+}
+
+.login__container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.12),
+    0 16px 32px -8px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Modo oscuro para el contenedor */
+body.dark-mode .login__container {
+  background: #242526;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
+    0 12px 24px -6px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  background-image: radial-gradient(circle at 20% 20%,
+      rgba(66, 184, 131, 0.05) 0%,
+      transparent 50%),
+    radial-gradient(circle at 80% 80%,
+      rgba(24, 119, 242, 0.03) 0%,
+      transparent 50%),
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%);
+}
+
+body.dark-mode .login__container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.5),
+    0 16px 32px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.login__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1c1e21;
+  text-align: center;
+  margin-bottom: 6px;
+  font-family: SFProDisplay, -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.3px;
+}
+
+/* Modo oscuro para el título */
+body.dark-mode .login__title {
+  color: #e4e6ea;
+}
+
+.login__subtitle {
+  font-size: 14px;
+  color: #606770;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/* Modo oscuro para el subtítulo */
+body.dark-mode .login__subtitle {
+  color: #b0b3b8;
+}
+
+.login__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login__form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.login__form-input {
+  background: #f5f6f7;
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 14px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #1c1e21;
+  font-family: SFProText, -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: all 0.2s ease;
+  position: relative;
+  outline: none;
+}
+
+.login__form-input:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+  background: #ffffff;
+}
+
+.login__form-input::placeholder {
+  color: #8a8d91;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Modo oscuro para los inputs */
+body.dark-mode .login__form-input {
+  background: #3a3b3c;
+  border: 1px solid #4e4f50;
+  color: #e4e6ea;
+}
+
+body.dark-mode .login__form-input:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.3);
+  background: #4e4f50;
+}
+
+body.dark-mode .login__form-input::placeholder {
+  color: #b0b3b8;
+}
+
+/* Contenedor de contraseña con ícono */
+.login__password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login__form-input--password {
+  padding-right: 48px;
+}
+
+.login__password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #65676b;
+  font-size: 18px;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__password-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1c1e21;
+}
+
+/* Modo oscuro para el botón de contraseña */
+body.dark-mode .login__password-toggle {
+  color: #b0b3b8;
+}
+
+body.dark-mode .login__password-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e4e6ea;
+}
+
+.login__form-btn {
+  background: linear-gradient(135deg, #1877f2 0%, #42b883 100%);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 14px 24px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(24, 119, 242, 0.2);
+  font-family: SFProText, -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.login__form-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
+  transition: left 0.5s;
+}
+
+.login__form-btn:hover::before {
+  left: 100%;
+}
+
+.login__form-btn:hover {
+  background: linear-gradient(135deg, #166fe5 0%, #369870 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(24, 119, 242, 0.3);
+}
+
+.login__form-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(24, 119, 242, 0.2);
+}
+
+/* Enlaces adicionales */
+.login__links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.login__link {
+  color: #1877f2;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.login__link:hover {
+  text-decoration: underline;
+  color: #166fe5;
+}
+
+/* Modo oscuro para los enlaces */
+body.dark-mode .login__link {
+  color: #42b883;
+}
+
+body.dark-mode .login__link:hover {
+  color: #369870;
+}
+
+.login__divider {
+  width: 100%;
+  height: 1px;
+  background: #dadde1;
+  margin: 16px 0;
+  position: relative;
+}
+
+/* Modo oscuro para el divisor */
+body.dark-mode .login__divider {
+  background: #4e4f50;
+}
+
+.login__register-btn {
+  background: #42b883;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
+  display: block;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(66, 184, 131, 0.2);
+  font-family: SFProText, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.login__register-btn:hover {
+  background: #369870;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(66, 184, 131, 0.3);
+}
+
+.login__register-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(66, 184, 131, 0.2);
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login__container {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login {
+    padding: 0.5rem;
+  }
+
+  .login__container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .login__title {
+    font-size: 24px;
+  }
+
+  .login__form-input {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  .login__form-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .login__container {
+    padding: 16px;
+    margin: 8px;
+  }
+
+  .login__title {
+    font-size: 22px;
+  }
+}

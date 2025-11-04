@@ -1,0 +1,291 @@
+/* ====================================
+   FORM RESERVATION - ESTILOS ULTRA MODERNOS
+   ==================================== */
+
+.form-reservation {
+  width: 95%;
+  max-width: 280px;
+  margin: 1rem auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 1.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.form-reservation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #ff6b6b 0%,
+    #4ecdc4 25%,
+    #45b7d1 50%,
+    #96ceb4 75%,
+    #ffeaa7 100%
+  );
+  border-radius: 24px 24px 0 0;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.form-reservation:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ====================================
+   TÍTULO DEL FORMULARIO
+   ==================================== */
+.form-reservation__title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700 !important;
+  font-size: 1.8rem !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center;
+}
+
+/* ====================================
+   CAMPOS DEL FORMULARIO
+   ==================================== */
+.form-reservation__field {
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.form-reservation__label {
+  color: #2d3748 !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem !important;
+  display: block;
+}
+
+.form-reservation__input,
+.form-reservation__select {
+  width: 95% !important;
+  max-width: 200px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 2px solid rgba(102, 126, 234, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: #2d3748 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.form-reservation__input:focus,
+.form-reservation__select:focus {
+  outline: none !important;
+  border-color: #667eea !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1),
+    0 8px 25px rgba(102, 126, 234, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+.form-reservation__input:hover,
+.form-reservation__select:hover {
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1),
+    0 8px 25px rgba(102, 126, 234, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  border-color: #667eea !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ====================================
+   BOTÓN DE ENVÍO
+   ==================================== */
+.form-reservation__button {
+  width: 95% !important;
+  max-width: 200px !important;
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 50%,
+    #667eea 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px 20px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  position: relative;
+  overflow: hidden;
+  margin: 2rem auto 0 auto !important;
+  display: block !important;
+}
+
+.form-reservation__button:hover {
+  background-position: 100% 0 !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.form-reservation__button:active {
+  transform: translateY(-1px) scale(0.98) !important;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3), 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Efecto de ondas en el botón */
+.form-reservation__button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.form-reservation__button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* ====================================
+   MEJORAS PARA CAMPOS DE FECHA
+   ==================================== */
+.form-reservation__input[type="date"] {
+  position: relative;
+  color-scheme: light;
+}
+
+.form-reservation__input[type="date"]::-webkit-calendar-picker-indicator {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+/* ====================================
+   ANIMACIÓN DE ENTRADA
+   ==================================== */
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====================================
+   MODO OSCURO
+   ==================================== */
+body.dark-mode .form-reservation {
+  background: #242526;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
+    0 12px 24px -6px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  background-image: radial-gradient(
+      circle at 20% 20%,
+      rgba(66, 184, 131, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(24, 119, 242, 0.03) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+}
+
+body.dark-mode .form-reservation:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.5),
+    0 16px 32px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .form-reservation__label {
+  color: #b0b3b8 !important;
+}
+
+body.dark-mode .form-reservation__input,
+body.dark-mode .form-reservation__select {
+  background: rgba(58, 59, 60, 0.8) !important;
+  color: #e4e6ea !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .form-reservation__input:focus,
+body.dark-mode .form-reservation__select:focus {
+  background: rgba(58, 59, 60, 0.95) !important;
+  border-color: #42b883 !important;
+  box-shadow: 0 0 0 4px rgba(66, 184, 131, 0.1),
+    0 8px 25px rgba(66, 184, 131, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+@media (max-width: 768px) {
+  .form-reservation {
+    padding: 2rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 20px;
+  }
+
+  .form-reservation__title {
+    font-size: 1.4rem !important;
+  }
+
+  .form-reservation__input,
+  .form-reservation__select {
+    padding: 14px 16px !important;
+    font-size: 0.95rem !important;
+    border-radius: 12px !important;
+  }
+
+  .form-reservation__button {
+    padding: 16px 20px !important;
+    font-size: 1rem !important;
+    border-radius: 12px !important;
+  }
+}

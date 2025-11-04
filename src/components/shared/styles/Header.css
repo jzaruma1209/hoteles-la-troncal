@@ -1,0 +1,734 @@
+/* ====================================
+   HEADER COMPONENT STYLES - ACADEMLO HOTELS
+   =====================================
+   
+   Este archivo contiene todos los estilos para el header responsivo
+   que incluye navegación desktop y mobile con menú hamburguesa.
+   
+   ESTRUCTURA PRINCIPAL:
+   1. Header Container (.header)
+   2. Logo (.header__logo)
+   3. Navegación Desktop (.header__nav)
+   4. Botón Menu Mobile (.header__menu)
+   5. Navegación Mobile (.header__nav-mobile)
+   6. Media Queries Responsivas
+   
+   METODOLOGÍA: BEM (Block Element Modifier)
+   COMPATIBILIDAD: Mobile First + Progressive Enhancement
+   ==================================== */
+
+/* ====================================
+   1. HEADER CONTAINER - Contenedor Principal
+   ==================================== */
+.header {
+  /* POSITIONING - Posicionamiento fijo en la parte superior */
+  position: fixed;
+  /* Fijo para que no se mueva al hacer scroll */
+  top: 0;
+  /* Pegado al top del viewport */
+  left: 0;
+  /* Pegado al lado izquierdo */
+  width: 100%;
+  /* Ocupa todo el ancho disponible */
+  height: 60px;
+  /* Altura fija para consistencia */
+
+  /* VISUAL DESIGN - Diseño visual del header */
+  background: #ffffff;
+  /* Fondo blanco sólido para modo claro */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Sombra sutil para profundidad */
+  z-index: 1000;
+  /* Alto z-index para estar sobre otros elementos */
+
+  /* LAYOUT - Sistema de layout con Flexbox */
+  display: flex;
+  /* Flexbox para alinear elementos horizontalmente */
+  align-items: center;
+  /* Centra verticalmente todos los elementos */
+  padding: 0 20px;
+  /* Espaciado interno horizontal (base mobile) */
+
+  /* OPTIMIZATION - Optimizaciones de rendimiento */
+  transition: all 0.3s ease;
+  /* Transición suave para cambios */
+  box-sizing: border-box;
+  /* Include padding/border en el width */
+  overflow: hidden;
+  /* Evita desbordamiento horizontal */
+}
+
+/* ====================================
+   2. LOGO SECTION - Sección del Logo
+   ==================================== */
+.header__logo {
+  /* TYPOGRAPHY - Tipografía del logo */
+  font-size: 1.4rem;
+  /* Tamaño base para mobile */
+  font-weight: bold;
+  /* Peso bold para destacar */
+  margin: 0;
+  /* Reset de márgenes */
+
+  /* LAYOUT - Posicionamiento del logo */
+  margin-right: auto;
+  /* CLAVE: Empuja el menú hacia la derecha */
+  flex-shrink: 0;
+  /* No se comprime en espacios reducidos */
+}
+
+.header__logo a {
+  /* LINK STYLES - Estilos del enlace del logo */
+  text-decoration: none;
+  /* Quita subrayado del enlace */
+  color: #1877f2;
+  /* Color azul corporativo */
+  display: flex;
+  /* Flexbox para alinear texto e iconos */
+  align-items: center;
+  /* Centra verticalmente el contenido */
+  gap: 4px;
+  /* Pequeño espacio entre elementos */
+  white-space: nowrap;
+  /* Evita que el texto se rompa en líneas */
+}
+
+.header__hotel {
+  /* ACCENT COLOR - Color de acento para "Hotels" */
+  color: #42b883;
+  /* Verde para contrastar con el azul */
+  font-weight: 600;
+  /* Peso medio-bold */
+}
+
+/* ====================================
+   3. DESKTOP NAVIGATION - Navegación de Escritorio
+   ==================================== */
+.header__nav {
+  /* VISIBILITY - Control de visibilidad responsiva */
+  display: none;
+  /* OCULTO en mobile por defecto */
+  flex-shrink: 0;
+  /* No se comprime */
+  align-items: center;
+  /* Centra verticalmente los elementos */
+  gap: 15px;
+  /* Espacio entre lista y botón dark mode */
+}
+
+.header__list {
+  /* LIST LAYOUT - Layout de la lista de navegación */
+  display: flex;
+  /* Elementos en línea horizontal */
+  list-style: none;
+  /* Quita bullets de la lista */
+  margin: 0;
+  /* Reset de márgenes */
+  padding: 0;
+  /* Reset de padding */
+  gap: 15px;
+  /* ESPACIADO entre elementos (optimizado) */
+  align-items: center;
+  /* Centra verticalmente */
+}
+
+.header__item {
+  /* ITEM CONTAINER - Contenedor de cada elemento */
+  flex-shrink: 0;
+  /* No se comprime */
+}
+
+.header__item a {
+  /* LINK STYLES - Estilos de los enlaces de navegación */
+  text-decoration: none;
+  /* Sin subrayado */
+  color: #333;
+  /* Color gris oscuro */
+  font-weight: 500;
+  /* Peso medio */
+  padding: 6px 12px;
+  /* PADDING compacto (optimizado) */
+  border-radius: 6px;
+  /* Bordes redondeados */
+  transition: all 0.3s ease;
+  /* Transición suave para hover */
+  position: relative;
+  /* Para efectos de posicionamiento */
+  white-space: nowrap;
+  /* Texto en una sola línea */
+  font-size: 1rem;
+  /* Tamaño de fuente base */
+}
+
+.header__item a:hover {
+  /* HOVER EFFECTS - Efectos al pasar el mouse */
+  background: #f0f2f5;
+  /* Fondo gris claro */
+  color: #1877f2;
+  /* Cambio de color a azul */
+}
+
+/* ====================================
+   4. MOBILE CONTROLS CONTAINER - Contenedor de Controles Móviles
+   ==================================== */
+.header__mobile-controls {
+  /* LAYOUT - Layout flexbox para los botones móviles */
+  display: flex;
+  /* Elementos en línea horizontal */
+  align-items: center;
+  /* Centra verticalmente */
+  gap: 10px;
+  /* Espacio entre botones */
+  margin-left: auto;
+  /* Empuja los controles hacia la derecha */
+  flex-shrink: 0;
+  /* No se comprime */
+}
+
+/* ====================================
+   5. MOBILE MENU BUTTON - Botón del Menú Mobile
+   ==================================== */
+.header__menu {
+  /* BUTTON DESIGN - Diseño del botón hamburguesa */
+  display: flex;
+  /* VISIBLE en mobile */
+  align-items: center;
+  /* Centra el icono verticalmente */
+  justify-content: center;
+  /* Centra el icono horizontalmente */
+  width: 40px;
+  /* Ancho fijo */
+  height: 40px;
+  /* Alto fijo (botón cuadrado) */
+  border: none;
+  /* Sin borde */
+  background: #f0f2f5;
+  /* Fondo gris claro */
+  border-radius: 50%;
+  /* Forma circular */
+  cursor: pointer;
+  /* Cursor de mano */
+  transition: all 0.3s ease;
+  /* Transición suave */
+  flex-shrink: 0;
+  /* No se comprime */
+  /* margin-left: auto; */
+  /* REMOVIDO: Ahora lo maneja el contenedor padre */
+}
+
+.header__menu:hover {
+  /* HOVER EFFECTS - Efectos hover del botón */
+  background: #e4e6ea;
+  /* Fondo más oscuro */
+  transform: scale(1.05);
+  /* Ligero agrandamiento */
+}
+
+.header__menu i {
+  /* ICON STYLES - Estilos del icono hamburguesa */
+  font-size: 1.5rem;
+  /* Tamaño del icono */
+  color: #333;
+  /* Color gris oscuro */
+}
+
+/* ====================================
+   6. MOBILE NAVIGATION - Navegación Mobile
+   ==================================== */
+.header__nav-mobile {
+  /* POSITIONING - Posicionamiento del menú mobile */
+  position: fixed;
+  /* Posición fija */
+  top: 60px;
+  /* Debajo del header (altura del header) */
+  left: 0;
+  /* Pegado a la izquierda */
+  width: 100%;
+  /* Ancho completo */
+  background: #fff;
+  /* Fondo blanco */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  /* Sombra para profundidad */
+  z-index: 999;
+  /* Z-index alto pero menor que header */
+
+  /* ANIMATION - Animación de entrada/salida */
+  transform: translateY(-100%);
+  /* OCULTO: movido hacia arriba */
+  opacity: 0;
+  /* OCULTO: transparente */
+  visibility: hidden;
+  /* OCULTO: no visible */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transición suave */
+}
+
+.header__nav-mobile.active {
+  /* ACTIVE STATE - Estado activo del menú mobile */
+  transform: translateY(0);
+  /* VISIBLE: en posición normal */
+  opacity: 1;
+  /* VISIBLE: opaco */
+  visibility: visible;
+  /* VISIBLE: visible */
+}
+
+.header__list-mobile {
+  /* MOBILE LIST - Lista del menú mobile */
+  list-style: none;
+  /* Sin bullets */
+  margin: 0;
+  /* Sin márgenes */
+  padding: 20px 0;
+  /* Padding vertical */
+}
+
+.header__item-mobile {
+  /* MOBILE ITEM - Elementos del menú mobile */
+  border-bottom: 1px solid #f0f2f5;
+  /* Línea separadora */
+}
+
+.header__item-mobile:last-child {
+  /* LAST ITEM - Último elemento sin borde */
+  border-bottom: none;
+}
+
+.header__item-mobile a {
+  /* MOBILE LINK - Enlaces del menú mobile */
+  display: block;
+  /* Ocupa todo el ancho */
+  text-decoration: none;
+  /* Sin subrayado */
+  color: #333;
+  /* Color gris oscuro */
+  font-weight: 500;
+  /* Peso medio */
+  padding: 15px 30px;
+  /* Padding generoso para touch */
+  transition: all 0.3s ease;
+  /* Transición suave */
+  position: relative;
+  /* Para el pseudo-elemento */
+}
+
+.header__item-mobile a::before {
+  /* ACCENT BAR - Barra de acento lateral */
+  content: "";
+  /* Pseudo-elemento vacío */
+  position: absolute;
+  /* Posicionamiento absoluto */
+  left: 0;
+  /* Pegado a la izquierda */
+  top: 0;
+  /* Pegado arriba */
+  width: 0;
+  /* Ancho inicial 0 */
+  height: 100%;
+  /* Alto completo del elemento */
+  background: linear-gradient(90deg, #1877f2, #42b883);
+  /* Gradiente azul-verde */
+  transition: width 0.3s ease;
+  /* Transición del ancho */
+}
+
+.header__item-mobile a:hover {
+  /* MOBILE HOVER - Efectos hover en mobile */
+  background: #f8f9fa;
+  /* Fondo gris muy claro */
+  color: #1877f2;
+  /* Color azul */
+  padding-left: 35px;
+  /* Aumenta padding izquierdo */
+}
+
+.header__item-mobile a:hover::before {
+  /* HOVER ACCENT - Barra de acento en hover */
+  width: 4px;
+  /* Ancho de 4px cuando hover */
+}
+
+/* ====================================
+   6. RESPONSIVE DESIGN - Diseño Responsivo
+   ==================================== */
+
+/* TABLET STYLES - Estilos para Tablet (768px+) */
+@media (min-width: 768px) {
+  .header {
+    padding: 0 30px;
+    /* Más padding en tablet */
+  }
+
+  .header__nav {
+    display: flex;
+    /* MUESTRA navegación desktop con flexbox */
+  }
+
+  .header__menu {
+    display: none;
+    /* OCULTA botón hamburguesa */
+  }
+
+  .header__mobile-controls {
+    /* OCULTA contenedor de controles móviles en tablet+ */
+    display: none;
+  }
+
+  .header__nav-mobile {
+    display: none !important;
+    /* OCULTA menú mobile */
+  }
+
+  .header__logo {
+    font-size: 1.5rem;
+    /* Logo más grande */
+    margin-right: auto;
+    /* Mantiene elementos a la derecha */
+  }
+
+  .header__list {
+    gap: 20px;
+    /* Más espacio entre elementos */
+  }
+
+  .header__item a {
+    font-size: 1rem;
+    /* Tamaño de fuente consistente */
+    padding: 8px 14px;
+    /* Padding ligeramente mayor */
+  }
+}
+
+/* DESKTOP STYLES - Estilos para Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .header {
+    padding: 0 40px;
+    /* Más padding en desktop */
+  }
+
+  .header__list {
+    gap: 25px;
+    /* Más espacio entre elementos */
+  }
+
+  .header__item a {
+    padding: 8px 16px;
+    /* Padding optimizado */
+    font-size: 1rem;
+    /* Tamaño consistente */
+  }
+
+  .header__logo {
+    font-size: 1.6rem;
+    /* Logo más grande */
+    margin-right: auto;
+    /* Mantiene alineación */
+  }
+}
+
+/* LARGE DESKTOP STYLES - Estilos para Desktop Grande (1200px+) */
+@media (min-width: 1200px) {
+  .header {
+    padding: 0 50px;
+    /* Máximo padding */
+  }
+
+  .header__list {
+    gap: 30px;
+    /* Máximo espacio entre elementos */
+  }
+
+  .header__item a {
+    padding: 10px 18px;
+    /* Padding más generoso */
+  }
+
+  .header__logo {
+    font-size: 1.7rem;
+    /* Logo más grande */
+    margin-right: auto;
+    /* Mantiene alineación */
+  }
+}
+
+/* MOBILE SPECIFIC FIXES - Correcciones Específicas para Mobile */
+@media (max-width: 767px) {
+  .header {
+    padding: 0 15px;
+    /* Padding reducido en mobile */
+  }
+
+  .header__nav {
+    display: none !important;
+    /* FUERZA ocultar navegación desktop */
+  }
+
+  .header__menu {
+    display: flex !important;
+    /* FUERZA mostrar botón hamburguesa */
+  }
+
+  .header__mobile-controls {
+    display: flex !important;
+    /* FUERZA mostrar contenedor de controles móviles */
+  }
+
+  .header__logo {
+    font-size: 1.3rem;
+    /* Logo más pequeño */
+    margin-right: auto;
+    /* Mantiene posicionamiento */
+  }
+}
+
+/* EXTRA SMALL DEVICES - Dispositivos Extra Pequeños (480px-) */
+@media (max-width: 480px) {
+  .header {
+    padding: 0 10px;
+    /* Padding mínimo */
+  }
+
+  .header__logo {
+    font-size: 1.2rem;
+    /* Logo más pequeño */
+  }
+
+  .header__menu {
+    width: 36px;
+    /* Botón más pequeño */
+    height: 36px;
+  }
+
+  .header__menu i {
+    font-size: 1.3rem;
+    /* Icono más pequeño */
+  }
+}
+
+/* ====================================
+   7. DARK MODE TOGGLE - Botón de Modo Oscuro
+   ==================================== */
+.header__dark-toggle {
+  /* BUTTON DESIGN - Diseño del botón de modo oscuro */
+  display: flex;
+  /* VISIBLE siempre */
+  align-items: center;
+  /* Centra el icono verticalmente */
+  justify-content: center;
+  /* Centra el icono horizontalmente */
+  width: 40px;
+  /* Ancho fijo */
+  height: 40px;
+  /* Alto fijo (botón cuadrado) */
+  border: none;
+  /* Sin borde */
+  background: #f0f2f5;
+  /* Fondo gris claro */
+  border-radius: 50%;
+  /* Forma circular */
+  cursor: pointer;
+  /* Cursor de mano */
+  transition: all 0.3s ease;
+  /* Transición suave */
+  flex-shrink: 0;
+  /* No se comprime */
+  /* margin-left: 10px; */
+  /* REMOVIDO: Ahora lo maneja el contenedor padre */
+}
+
+.header__dark-toggle:hover {
+  /* HOVER EFFECTS - Efectos hover del botón */
+  background: #e4e6ea;
+  /* Fondo más oscuro */
+  transform: scale(1.05);
+  /* Ligero agrandamiento */
+}
+
+.header__dark-toggle i {
+  /* ICON STYLES - Estilos del icono luna/sol */
+  font-size: 1.5rem;
+  /* Tamaño del icono */
+  color: #333;
+  /* Color gris oscuro */
+}
+
+/* ====================================
+   8. DARK MODE STYLES - Estilos de Modo Oscuro
+   ==================================== */
+.header.dark-mode {
+  /* DARK MODE HEADER - Header en modo oscuro */
+  background: #242526;
+  /* Gris oscuro estilo Facebook */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  /* Sombra más realista en modo oscuro */
+}
+
+.header.dark-mode .header__logo a {
+  /* DARK MODE LOGO - Logo en modo oscuro */
+  color: #b0c4ff;
+  /* Azul claro estilo Facebook */
+}
+
+.header.dark-mode .header__hotel {
+  /* DARK MODE ACCENT - Acento en modo oscuro */
+  color: #57f287;
+  /* Verde claro estilo Facebook */
+}
+
+.header.dark-mode .header__item a {
+  /* DARK MODE NAVIGATION - Navegación en modo oscuro */
+  color: #e4e6eb;
+  /* Texto claro estilo Facebook */
+}
+
+.header.dark-mode .header__item a:hover {
+  /* DARK MODE HOVER - Hover en modo oscuro */
+  background: #3a3b3c;
+  /* Hover gris oscuro estilo Facebook */
+  color: #b0c4ff;
+  /* Azul claro estilo Facebook */
+}
+
+.header.dark-mode .header__menu {
+  /* DARK MODE MENU BUTTON - Botón menú en modo oscuro */
+  background: #3a3b3c;
+  /* Fondo gris oscuro estilo Facebook */
+}
+
+.header.dark-mode .header__menu:hover {
+  /* DARK MODE MENU HOVER - Hover botón menú en modo oscuro */
+  background: #4e4f50;
+  /* Fondo más claro estilo Facebook */
+}
+
+.header.dark-mode .header__menu i {
+  /* DARK MODE MENU ICON - Icono menú en modo oscuro */
+  color: #e4e6eb;
+  /* Color claro estilo Facebook */
+}
+
+.header.dark-mode .header__dark-toggle {
+  /* DARK MODE TOGGLE BUTTON - Botón modo oscuro en modo oscuro */
+  background: #3a3b3c;
+  /* Fondo gris oscuro estilo Facebook */
+}
+
+.header.dark-mode .header__dark-toggle:hover {
+  /* DARK MODE TOGGLE HOVER - Hover botón modo oscuro en modo oscuro */
+  background: #4e4f50;
+  /* Fondo más claro estilo Facebook */
+}
+
+.header.dark-mode .header__dark-toggle i {
+  /* DARK MODE TOGGLE ICON - Icono modo oscuro en modo oscuro */
+  color: #ffd43b;
+  /* Color amarillo para el sol (sin cambio) */
+}
+
+.header.dark-mode .header__nav-mobile {
+  /* DARK MODE MOBILE NAV - Navegación mobile en modo oscuro */
+  background: #242526;
+  /* Gris oscuro estilo Facebook */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  /* Sombra más realista en modo oscuro */
+}
+
+.header.dark-mode .header__item-mobile {
+  /* DARK MODE MOBILE ITEM - Elementos mobile en modo oscuro */
+  border-bottom: 1px solid #3a3b3c;
+  /* Línea separadora gris Facebook */
+}
+
+.header.dark-mode .header__item-mobile a {
+  /* DARK MODE MOBILE LINK - Enlaces mobile en modo oscuro */
+  color: #e4e6eb;
+  /* Texto claro estilo Facebook */
+}
+
+.header.dark-mode .header__item-mobile a:hover {
+  /* DARK MODE MOBILE HOVER - Hover mobile en modo oscuro */
+  background: #3a3b3c;
+  /* Hover gris oscuro estilo Facebook */
+  color: #b0c4ff;
+  /* Azul claro estilo Facebook */
+}
+
+.header.dark-mode .header__item-mobile a::before {
+  /* DARK MODE MOBILE ACCENT - Barra lateral en modo oscuro */
+  background: linear-gradient(90deg, #b0c4ff, #57f287);
+  /* Gradiente claro estilo Facebook */
+}
+
+/* Responsive adjustments for dark mode toggle */
+@media (max-width: 480px) {
+  .header__dark-toggle {
+    width: 36px;
+    /* Botón más pequeño */
+    height: 36px;
+    margin-left: 8px;
+    /* Menos margen en mobile */
+  }
+
+  .header__dark-toggle i {
+    font-size: 1.3rem;
+    /* Icono más pequeño */
+  }
+}
+
+/* ====================================
+   9. MAIN CONTENT SPACING - Espaciado para Contenido Principal
+   ==================================== */
+.main-content {
+  /* SPACING - Espaciado para compensar header fijo */
+  margin-top: 80px;
+  /* 60px (altura header) + 20px (espacio adicional) */
+  padding-top: 0;
+  /* Reset padding superior */
+}
+
+/* Alternative: Use this class on body or main container if needed */
+.has-fixed-header {
+  padding-top: 80px;
+  /* 60px (altura header) + 20px (espacio adicional) */
+}
+
+/* ====================================
+   LOGOUT BUTTON STYLES
+   ==================================== */
+.header__logout {
+  /* RESET - Reset estilos de botón por defecto */
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+
+  /* VISUAL - Estilos visuales */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  /* HOVER STATES */
+  &:hover {
+    background-color: rgba(24, 119, 242, 0.1);
+    color: #1877f2;
+  }
+
+  /* FOCUS STATES */
+  &:focus {
+    outline: 2px solid #1877f2;
+    outline-offset: 2px;
+  }
+
+  /* ACTIVE STATES */
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* DARK MODE - Estilos para modo oscuro */
+.header.dark-mode .header__logout:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}

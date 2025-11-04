@@ -1,0 +1,191 @@
+/* Variables CSS para el navbar */
+:root {
+  --navbar-height: 60px;
+}
+
+/* Fondo para toda la página */
+body {
+  background: linear-gradient(135deg, #18191a 0%, #1a1b1c 100%);
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(24, 119, 242, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(66, 184, 131, 0.08) 0%,
+      transparent 50%
+    );
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Diseño estilo Facebook/Academlo para HomePage */
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  margin-top: 60px;
+  padding: 2rem 1rem;
+  position: relative;
+  box-sizing: border-box;
+}
+.homePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 40px);
+  margin-top: 40px;
+  padding: 2rem 1rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Contenedor principal de hoteles */
+.hotels__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 0;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Título de sección si existe */
+.home__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1c1e21;
+  text-align: center;
+  margin-bottom: 12px;
+  font-family: SFProDisplay, -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.5px;
+}
+
+body.dark-mode .home__title {
+  color: #e4e6ea;
+}
+
+.home__subtitle {
+  font-size: 16px;
+  color: #606770;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+body.dark-mode .home__subtitle {
+  color: #b0b3b8;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hotels__container {
+    gap: 20px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hotels__container {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .home {
+    padding: 2rem 8px;
+  }
+
+  .home__title {
+    font-size: 24px;
+  }
+}
+
+/* Layout de dos columnas - Sidebar + Main Content */
+.home__content {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  gap: 24px;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+
+.home__main {
+  flex: 1;
+  min-width: 0; /* Permite que el contenido se ajuste */
+  order: 2; /* El contenido principal va a la derecha */
+}
+
+.home__sidebar {
+  width: 280px;
+  flex-shrink: 0; /* No se reduce */
+  order: 1; /* El sidebar va a la izquierda */
+}
+
+/* Ajustes para el contenedor de hoteles cuando hay sidebar */
+.home__content .hotels__container {
+  margin: 0;
+  width: 100%;
+}
+
+/* Responsive para sidebar - En móviles se convierte en navbar horizontal */
+@media (max-width: 1024px) {
+  .home__content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .home__sidebar {
+    width: 100%;
+    order: 1; /* Se mantiene arriba en móviles */
+  }
+
+  .home__main {
+    order: 2; /* El contenido principal va abajo en móviles */
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 2rem 12px;
+  }
+
+  .hotels__container {
+    gap: 16px;
+    padding: 12px 0;
+  }
+
+  .home__title {
+    font-size: 28px;
+  }
+
+  .home__subtitle {
+    font-size: 14px;
+  }
+
+  .home__content {
+    gap: 16px;
+  }
+}
