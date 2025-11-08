@@ -13,7 +13,7 @@ const useFetch = () => {
       setResponse(null);
 
       const res = await axios.get(url);
-      setResponse(res.data);
+      setResponse(res.data.data);
     } catch (err) {
       setError(err.message || "Error al obtener los datos");
     } finally {

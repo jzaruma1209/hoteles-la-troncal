@@ -16,7 +16,7 @@ const homePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const url = "https://hotels-api.academlo.tech/hotels"; // URL corregida
+    const url = "https://bookapp-psql-production.vercel.app/api/v1/hotels";
     dispatch(getHotelsThunk(url));
   }, []);
 

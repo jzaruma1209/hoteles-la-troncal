@@ -10,13 +10,13 @@ const OtherHotels = ({ city }) => {
 
   useEffect(() => {
     if (city) {
-      const url = `https://hotels-api.academlo.tech/hotels?city=${city.id}`;
+      const url = `https://bookapp-psql-production.vercel.app/api/v1/hotels/city/${city.id}`;
       getHotelsByCity(url);
     }
   }, [city]);
 
   const otherHotels =
-    hotelsByCity?.results?.filter((hotel) => hotel.id !== parseInt(id)) || [];
+    hotelsByCity?.filter((hotel) => hotel.id !== parseInt(id)) || [];
 
   return (
     <section>
@@ -44,7 +44,7 @@ const OtherHotels = ({ city }) => {
               <p>
                 <small>
                   Total hotels in {city?.name}:{" "}
-                  {hotelsByCity.results?.length || 0}
+                  {hotelsByCity?.length || 0}
                 </small>
               </p>
             </div>

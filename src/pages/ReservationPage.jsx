@@ -13,11 +13,11 @@ const ReservationsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = "https://hotels-api.academlo.tech/bookings";
+    const url = "https://bookapp-psql-production.vercel.app/api/v1/bookings/me/bookings";
     const token = localStorage.getItem("token");
 
     if (token) {
-      getReservations(url, token);
+      getReservations(url, true);
     } else {
       console.error("No token found in localStorage");
     }

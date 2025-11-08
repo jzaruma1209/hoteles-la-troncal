@@ -8,7 +8,7 @@ const Reviews = ({ hotelId }) => {
   const [reviewsHotel, getReviewsHotel] = useFetch();
 
   useEffect(() => {
-    const url = `https://hotels-api.academlo.tech/reviews?hotelId=${hotelId}`;
+    const url = `https://bookapp-psql-production.vercel.app/api/v1/reviews/hotel/${hotelId}`;
     getReviewsHotel(url);
   }, [hotelId]);
 
@@ -22,9 +22,9 @@ const Reviews = ({ hotelId }) => {
     <div className="reviews">
       <h3 className="reviews__title">Comments</h3>
       <div className="reviews__container">
-        {reviewsHotel?.results.slice(0, visibleComments).map((review) => (
+        {reviewsHotel?.slice(0, visibleComments).map((review) => (
           <ul key={review.id} className="review__item">
-            <li className="review__user">{review.user.firstName}</li>
+            <li className="review__user">{review.user?.firstName || 'Usuario'}</li>
             <li className="review__rating">
               <StarRating
                 rating={review.rating}
@@ -39,7 +39,7 @@ const Reviews = ({ hotelId }) => {
           </ul>
         ))}
       </div>
-      {visibleComments < reviewsHotel?.results.length && (
+      {visibleComments < reviewsHotel?.length && (
         <button className="reviews__button" onClick={handleReviews}>
           See More ...
         </button>

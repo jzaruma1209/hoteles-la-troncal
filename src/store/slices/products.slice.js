@@ -15,6 +15,6 @@ export const getHotelsThunk = (url) => (dispatch) => {
   // esto es para hacer peticiones asincronas
   axios
     .get(url)
-    .then((res) => dispatch(setProducts(res.data)))
+    .then((res) => dispatch(setProducts(res.data.data)))
     .catch((err) => console.error(err));
 };

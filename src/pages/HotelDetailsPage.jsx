@@ -14,7 +14,7 @@ const HotelDetailsPage = () => {
   const [hotel, getHotel] = useFetch();
 
   useEffect(() => {
-    const url = `https://hotels-api.academlo.tech/hotels/${id}`;
+    const url = `https://bookapp-psql-production.vercel.app/api/v1/hotels/${id}`;
     getHotel(url);
   }, [id]);
 

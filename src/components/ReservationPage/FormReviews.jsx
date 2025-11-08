@@ -28,7 +28,7 @@ const FormReviews = ({
 
   const submitReview = (data) => {
     try {
-      const url = "https://hotels-api.academlo.tech/reviews";
+      const url = "https://bookapp-psql-production.vercel.app/api/v1/reviews";
 
       const reviewData = {
         rating: parseInt(data.rating),

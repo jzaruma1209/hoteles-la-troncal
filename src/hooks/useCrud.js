@@ -10,7 +10,7 @@ const useCrud = () => {
   const getData = (url, withToken) => {
     axios
       .get(url, withToken ? getConfigToken() : {})
-      .then((res) => setResponse(res.data))
+      .then((res) => setResponse(res.data.data))
       .catch((err) => {
         console.error(err);
         //401 NO ESTA AUTORIZADO O 403 EL TOKEN EXPITÓ
@@ -27,7 +27,7 @@ const useCrud = () => {
       .post(url, data, withToken ? getConfigToken() : {})
       .then((res) => {
         console.log(res.data);
-        setResponse(response ? [...response, res.data] : [res.data]);
+        setResponse(response ? [...response, res.data.data] : [res.data.data]);
       })
       .catch((err) => {
         console.error(err);
@@ -63,7 +63,7 @@ const useCrud = () => {
       .put(url, data, withToken ? getConfigToken() : {})
       .then((res) => {
         console.log(res.data);
-        setResponse(response.map((item) => (item.id === id ? res.data : item)));
+        setResponse(response.map((item) => (item.id === id ? res.data.data : item)));
       })
       .catch((err) => {
         console.error(err);

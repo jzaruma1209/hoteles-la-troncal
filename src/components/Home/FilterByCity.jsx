@@ -9,14 +9,14 @@ const FilterByCity = ({ setNameFiltered, setPriceFiltered }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const url = "https://hotels-api.academlo.tech/cities";
+    const url = "https://bookapp-psql-production.vercel.app/api/v1/cities";
     getCities(url);
   }, []);
 
   const handleCities = (cityId) => {
-    const url = `https://hotels-api.academlo.tech/hotels${
-      cityId ? `?cityId=${cityId}` : ""
-    }`;
+    const url = cityId
+      ? `https://bookapp-psql-production.vercel.app/api/v1/hotels/city/${cityId}`
+      : "https://bookapp-psql-production.vercel.app/api/v1/hotels";
     dispatch(getHotelsThunk(url));
     setNameFiltered("");
     setPriceFiltered({

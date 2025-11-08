@@ -9,7 +9,7 @@ const FormReservations = ({ hotelId }) => {
   const navigate = useNavigate();
 
   const submit = (data) => {
-    const url = "https://hotels-api.academlo.tech/bookings";
+    const url = "https://bookapp-psql-production.vercel.app/api/v1/bookings";
     const objData = { ...data, hotelId };
 
     postData(url, objData, true);

@@ -13,7 +13,7 @@ const BookCard = ({
   const reservationDays = (finalDate - initialDate) / (1000 * 3600 * 24);
 
   const handleDelete = () => {
-    const url = `https://hotels-api.academlo.tech/bookings/${book.id}`;
+    const url = `https://bookapp-psql-production.vercel.app/api/v1/bookings/${book.id}`;
     deleteReservation(url, book.id, true); // true para withToken
   };
 
